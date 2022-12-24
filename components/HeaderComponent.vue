@@ -1,124 +1,107 @@
 <template>
-	<nav id="navbar">
-		<div class="wrapper">
-			<div class="row">
-				<div class="nav-logo">
-					<NuxtLink to="/" class="logo-link">
-						<img onContextMenu="return false;" src="https://hrudayaspandana.org/assets/images/logo.webp"
-							alt="" class="logo-img">
-					</NuxtLink>
-				</div>
-				<button id="nav_menu_btn" menu="close">
-					<i class="fas fa-bars"></i>
-				</button>
-				<div class="nav-menu" id="nav_menu">
-					<ul class="menu-row" id="responsive-menu">
-						<li class="menu-li parent"><a class="menu-links " href="#">About Us</a>
-							<ul class="child">
-								<li><NuxtLink to="/about">Introduction</NuxtLink></li>
-								<li><NuxtLink to="/leadership-team">Leadership Team</NuxtLink></li>
-								<li><NuxtLink to="/media">Media</NuxtLink></li>
-								<li><NuxtLink to="/testimonial">Testimonial</NuxtLink></li>
-							</ul>
-						</li>
-						<li class="menu-li parent"><a class="menu-links " href="#">Gallery</a>
-							<ul class="child">
-								<!--<li><NuxtLink to="/">Audios</NuxtLink></li>-->
-								<li><NuxtLink to="/gallery/images">Images</NuxtLink></li>
-								<li><NuxtLink to="/gallery/videos">Videos</NuxtLink></li>
-							</ul>
-						</li>
-						<li class="menu-li parent"><a class="menu-links " href="#">Join Hands</a>
-							<ul class="child">
-								<li><NuxtLink to="/volunteer">Volunteer</NuxtLink></li>
-								<li><NuxtLink to="/faq">FAQs</NuxtLink></li>
-								<!--<li><NuxtLink to="/contact">Contact us</NuxtLink></li>-->
-								<!--<li><NuxtLink to="/find-us">Find Us</NuxtLink></li>-->
-							</ul>
-						</li>
-						<!--<li class="menu-li parent"><a class="menu-links " href="#">Donation</NuxtLink>-->
-						<!--    <ul class="child">-->
-						<!--<li><NuxtLink to="/">Donation</NuxtLink></li>-->
-						<!--        <li><NuxtLink to="/">E-Hundi</NuxtLink></li>-->
-						<!--    </ul>-->
-						<!--</li>-->
-						<li class="menu-li parent"><a class="menu-links " href="#">Madhava Seva</a>
-							<ul class="child">
-								<li><NuxtLink to="/madhava-seva/past-events">Past Events</NuxtLink>
-								</li>
-								<li><NuxtLink to="/madhava-seva/upcoming-events">Upcoming
-										Events</NuxtLink></li>
-							</ul>
-						</li>
-						<li class="menu-li parent"><a class="menu-links " href="#">Manava Seva</a>
-							<ul class="child">
-								<li><NuxtLink to="/manava-seva/past-events">Past Events</NuxtLink>
-								</li>
-								<li><NuxtLink to="/manava-seva/upcoming-events">Upcoming
-										Events</NuxtLink></li>
-							</ul>
-						</li>
+    <header class="main-header box">
+	  
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+	  <div class="app-menu d-flex align-items-center">
+		<ul class="header-megamenu nav">
+			<li class="btn-group nav-item">
+				<a href="javascript:void(0)"  class="waves-effect waves-light nav-link push-btn btn-primary-light ms-0" data-toggle="push-menu" role="button" @click="toogleSideBar">
+                    <font-awesome-icon :icon="activeSidebar ? ['fa', 'xmark'] : ['fa', 'bars']" />
+			    </a>
+			</li>
+		</ul> 
+		<div class="d-md-flex d-none align-items-center logo-box justify-content-start">		
+		<NuxtLink to="/" class="logo-lg">
+			<span class="light-logo"><img class="header-logo" src="/images/logo.png" alt="logo"></span>
+		</NuxtLink>
+	  </div> 
+	  </div>
+		
+      <div class="navbar-custom-menu r-side">
+        <ul class="nav navbar-nav">
+			<li class="btn-group d-xl-inline-flex d-none">
+				<NuxtLink to="/" data-provide="fullscreen" class="waves-effect skin-toggle waves-light" title="Full Screen" @click="toggleFullScreen">
+					<label class="switch">
+						<span class="switch-on">
+							<i class="el-icon-s-home"></i>
+						</span>
+					</label>
+			    </NuxtLink>
+			</li>
 
-						<li class="menu-li parent"><a class="menu-links " href="#">Resources</a>
-							<ul class="child">
-								<!--<li><NuxtLink to="/">Literature</NuxtLink></li>-->
-								<li><a href="https://hrudayaspandana.org/blog" target="_blank">Blogs</a></li>
-								<!--<li><NuxtLink to="/">Crossword</NuxtLink></li>-->
-							</ul>
-						</li>
-
-
-						<!--<li class="menu-li parent"><a class="menu-links " href="#">Services</NuxtLink>-->
-						<!--    <ul class="child">-->
-
-						<!--<li class="parent"><NuxtLink to="#">Manava Seva<span class="expand">»</span></NuxtLink>-->
-						<!--    <ul class="child small-child">-->
-						<!--    -->
-						<!--        <li><NuxtLink to="/services/manava-seva/WmZVOg==" nowrap>Orphanage Seva</NuxtLink></li>-->
-						<!--    -->
-						<!--        <li><NuxtLink to="/services/manava-seva/WmYBYQ==" nowrap>Aahaara Seva</NuxtLink></li>-->
-						<!--    -->
-						<!--        <li><NuxtLink to="/services/manava-seva/CjYAYg==" nowrap>Covid Seva</NuxtLink></li>-->
-						<!--    -->
-						<!--    </ul>-->
-						<!--</li>-->
-
-						<!--<li class="parent"><NuxtLink to="#">Madhava Seva<span class="expand">»</span></NuxtLink>-->
-						<!--    <ul class="child small-child">-->
-						<!--    -->
-						<!--        <li><NuxtLink to="/services/madhava-seva/WWUEag==" nowrap>Devata Homas</NuxtLink></li>-->
-						<!--    -->
-						<!--        <li><NuxtLink to="/services/madhava-seva/DTEHZg==" nowrap>Rudraabhisekam</NuxtLink></li>-->
-						<!--    -->
-						<!--    </ul>-->
-						<!--</li>-->
-
-
-
-
-						<!--    </ul>-->
-						<!--</li>-->
-						<!-- <li class="menu-li parent"><a class="menu-links " href="#">User</NuxtLink>
-                        <ul class="child">
-                                                            <li><NuxtLink to="/login">Login</NuxtLink></li>
-                                <li><NuxtLink to="/register">Register</NuxtLink></li>
-                                                    </ul>
-                    </li> -->
-						<!--<li class="menu-li">-->
-						<!--    <NuxtLink to="/login" class="menu-call-to-action">Login</NuxtLink>-->
-						<!--</li>-->
-						<li class="menu-li">
-							<NuxtLink to="/contact" class="menu-call-to-action">Contact Us</NuxtLink>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</nav>
+			<li class="btn-group d-md-inline-flex d-none">
+              <a href="javascript:void(0)" title="skin Change" class="waves-effect skin-toggle waves-light" @click="toggleDarkMode">
+			  	<label class="switch">
+					<span class="switch-on"><i class="el-icon-moon" ></i></span>
+					<span class="switch-off"><i class="el-icon-sunny" ></i></span>
+				</label>
+			  </a>				
+            </li>
+			
+			<li class="btn-group nav-item d-xl-inline-flex d-none">
+				<a href="javascript:void(0)" data-provide="fullscreen" class="waves-effect waves-light nav-link btn-primary-light svg-bt-icon" title="Full Screen" @click="toggleFullScreen">
+					<font-awesome-icon :icon="fullScreen ? ['fa', 'expand'] : ['fa', 'compress']" />
+			    </a>
+			</li>
+			
+			<!-- User Account-->
+			<li class="dropdown user user-menu">
+				<a href="javascript:void(0)" class="waves-effect waves-light dropdown-toggle w-auto l-h-12 bg-transparent p-0 no-shadow" title="User" data-bs-toggle="modal" data-bs-target="#quick_user_toggle" @click="toogleProfileBar">
+					<div class="d-flex pt-1 align-items-center">
+						<div class="text-end me-10">
+							<p class="pt-5 fs-14 mb-0 fw-700">{{$auth.user.name ? $auth.user.name : "Anonymous"}}</p>
+							<small class="fs-10 mb-0 text-uppercase text-mute">{{$auth.user.role}}</small>
+						</div>
+						<img src="/images/avatar/avatar-13.png" class="avatar rounded-circle bg-primary-light h-40 w-40" alt="" />
+					</div>
+				</a>
+			</li>		  
+        
+			
+        </ul>
+      </div>
+    </nav>
+  </header>
 </template>
 
 <script>
 export default {
-	name: 'HeaderComponent',
+    name: 'HeaderComponent',
+	data() {
+		return {
+			fullScreen: this.$fullscreen.isFullscreen || true
+		}
+	},
+	computed: {
+		activeSidebar () {
+		return this.$store.state.sidebar.sidebar
+		},
+		dark () {
+		return this.$store.state.dark.dark
+		},
+	},
+    methods:{
+        toggleDarkMode(){
+            this.$store.commit('dark/toggle')
+        },
+        toggleFullScreen(){
+            this.$fullscreen.toggle()
+			this.fullScreen= this.$fullscreen.isFullscreen
+        },
+		toogleSideBar(){
+			this.$store.commit('sidebar/toggle', {status: !this.$store.state.sidebar.sidebar})
+		},
+		toogleProfileBar() {
+			this.$store.commit('profilebar/toggle', {status: !this.$store.state.profilebar.profilebar})
+		}
+    }
 }
 </script>
+<style scoped>
+.header-logo{
+	height: 70px;
+    object-fit: contain;
+}
+</style>

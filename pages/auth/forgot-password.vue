@@ -1,60 +1,93 @@
 <template>
-    <div>
-        <HeroComponent title="Forgot Password" />
-
-        <section class="hundi donation-page login-page">
-            <div class="wrapper">
-                <div class="hundi-row login-main-row">
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <form action="https://hrudayaspandana.org/forgot-password" id="forgot_password_form"
-                            method="post">
-                            <input autocomplete="off" type="hidden" name="ci_csrf_token" value="">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <div class="errorTxt"></div>
-                                        <input type="email" name="email" id="email" autocomplete="off"
-                                            class="form-control form-hundi-input" placeholder="Email*" value="">
-                                        <div style="color:red;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-
-                                <div class="BDC_CaptchaDiv" id="Captcha_CaptchaDiv" style="width:330px; height:60px;">
-                                    <input type="hidden" name="BDC_VCID_Captcha" id="BDC_VCID_Captcha"
-                                        value="510ba2e7b3651bd9c91b1e5a813b31ce" />
-                                    <input type="hidden" name="BDC_BackWorkaround_Captcha"
-                                        id="BDC_BackWorkaround_Captcha" value="0" />
-                                    <input type="hidden" name="BDC_Hs_Captcha" id="BDC_Hs_Captcha"
-                                        value="13ce365a24e2e541ddc74bd784424df3efcb42bb" />
-                                    <input type="hidden" name="BDC_SP_Captcha" id="BDC_SP_Captcha" value="1819578995" />
-                                </div>
-                                <input id="captcha" type="text" name="captcha" value=""
-                                    class="form-control form-hundi-input  mt-3" required
-                                    placeholder="Enter the text from above image*" />
-                                <div style="color:red;"></div>
-                            </div>
-                            <div class="mb-3 text-center">
-                                <button type="submit"
-                                    class="btn btn-primary form-hundi-submit form-hundi-login">Submit</button>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <div class="bg-white rounded10 shadow-lg">
+    <div class="content-top-agile p-20 pb-0">
+      <NuxtLink to="/" class="logo-lg">
+				<span class="light-logo"><img src="/images/logo.png" style="height:70px;" alt="logo"></span>
+			</NuxtLink>
+      <h2 class="text-primary fw-600">Let's Get Started</h2>
+      <p class="mb-0 text-fade">Reset your password to continue to Admin Panel.</p>
     </div>
+    <div class="p-40">
+      <ValidationObserver ref="form" v-slot="{ handleSubmit }">
+      <form
+        method="post"
+        @submit.prevent="handleSubmit(formHandler)"
+      >
+        <div class="form-group">
+          <ValidationProvider v-slot="{ classes, errors }" rules="required|email" name="email">
+          <div class="input-group mb-3">
+            <span class="input-group-text bg-transparent"
+              ><i class="el-icon-message"></i></span>
+            <input
+              v-model="email"
+              type="email"
+              class="form-control ps-15 bg-transparent"
+              placeholder="Email"
+            />
+          </div>
+          <span :class="classes">{{ errors[0] }}</span>
+          </ValidationProvider>
+        </div>
+        <div class="row">
+          
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary w-p100 mt-10">
+              Reset Password
+            </button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+      </ValidationObserver>
+      <div class="text-center">
+        <p class="mt-15 mb-0 text-fade">
+          Remember your password?
+          <NuxtLink to="/auth/login" class="text-primary ms-5">Login</NuxtLink>
+        </p>
+      </div>
+
+    </div>
+  </div>
 </template>
-
-<script>
-export default {
-    name: "ForgotPasswordPage",
-    layout: "MainPageLayout",
-}
-</script>
-
-<style scoped>
-
-</style>
+  
+  <script>
+  
+  export default {
+    name: 'ForgotPasswordPage',
+    layout: 'AuthLayout',
+    data() {
+      return {
+        email: '',
+      }
+    },
+    mounted(){
+      // eslint-disable-next-line nuxt/no-env-in-hooks
+      if(process.client){
+          this.$scrollTo('#__nuxt', 0, {force: true})
+      }
+  },
+    methods: {
+      async formHandler(){
+          const loading = this.$loading({
+            lock: true,
+            fullscreen: true,
+          });
+          try {
+              const response = await this.$publicApi.post('/auth/forgot-password', {email:this.email}); // eslint-disable-line
+              this.$toast.info('We have shared you an otp via email. kindly enter that in order to reset your password.')
+              this.$router.push('/auth/reset-password/'+response.data.data);
+              // console.log(response);// eslint-disable-line
+          } catch (err) {
+              // console.log(err.response);// eslint-disable-line
+              this.$refs.form.setErrors({
+                email: err?.response?.data?.form_error?.email,
+              });
+              
+          } finally{
+            loading.close();
+          }
+      }
+    },
+  }
+  </script>
+  
