@@ -138,7 +138,7 @@ export default {
         },
         handlePageChnage(){
             this.currentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
-            this.getTableData(this.$route.query.page ? (this.$route.query.page*10)-10 : 0);
+            this.getTableData(this.$route.query.page ? Number(this.$route.query.page) : 1);
             // console.log(this.currentPage);
         }
     }
