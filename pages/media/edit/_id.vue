@@ -18,7 +18,7 @@
                                     <div class="col-md-6">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required" name="type">
                                         <div class="form-group">
-                                            <label class="form-label">File Type *</label>
+                                            <label class="form-label">Media Type *</label>
                                             <el-select v-model="type" placeholder="Select" style="width:100%">
                                                 <el-option
                                                 v-for="item in fileType"
