@@ -53,6 +53,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/auth-next',
     'vue-scrollto/nuxt',
+    "vue2-editor/nuxt",
     ["vue-toastification/nuxt", {
       timeout: 8000,
       position: "bottom-center"
