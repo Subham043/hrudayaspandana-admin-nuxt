@@ -1,12 +1,12 @@
 <template>
     <div>
-        <BreadcrumbComponent main-page="Subscription" current-page="Edit" />
+        <BreadcrumbComponent main-page="Subscription" current-page="Display" />
         <section class="content">
             <div class="row">
                 <div class="col-lg-12 col-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h4 class="box-title">Edit Subscription</h4>
+                            <h4 class="box-title">Display Subscription</h4>
                         </div>
                         <!-- /.box-header -->
                         <ValidationObserver ref="form" v-slot="{ handleSubmit }">
