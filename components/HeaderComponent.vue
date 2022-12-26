@@ -12,12 +12,12 @@
 			    </a>
 			</li>
 		</ul> 
-		<div class="d-md-flex d-none align-items-center logo-box justify-content-start">		
+	</div>
+	<div class="d-md-flex d-none align-items-center logo-box justify-content-end">		
 		<NuxtLink to="/" class="logo-lg">
 			<span class="light-logo"><img class="header-logo" src="/images/logo.png" alt="logo"></span>
 		</NuxtLink>
-	  </div> 
-	  </div>
+	</div> 
 		
       <div class="navbar-custom-menu r-side">
         <ul class="nav navbar-nav">
