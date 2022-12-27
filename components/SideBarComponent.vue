@@ -85,14 +85,17 @@
 								</NuxtLink>
 								<el-submenu index="7">
 									<template slot="title">
-										<i class="el-icon-price-tag"></i>
-										<span>Payment</span>
+										<i class="el-icon-picture-outline"></i>
+										<span>Gallery</span>
 									</template>
-									<NuxtLink to="/payment/content">
-										<el-menu-item index="7-1">Content </el-menu-item>
+									<NuxtLink to="/gallery/images/list">
+										<el-menu-item index="7-1">Images </el-menu-item>
 									</NuxtLink>
-									<NuxtLink to="/payment/live-session-content">
-										<el-menu-item index="7-2">Live Session Content </el-menu-item>
+									<NuxtLink to="/gallery/videos/list">
+										<el-menu-item index="7-2">Videos </el-menu-item>
+									</NuxtLink>
+									<NuxtLink to="/gallery/audios/list">
+										<el-menu-item index="7-2">Audios </el-menu-item>
 									</NuxtLink>
 								</el-submenu>
 								<el-submenu index="9">
