@@ -22,7 +22,7 @@
 									<span>Dashboard</span>
 								</el-menu-item>
 							</NuxtLink>
-							<template>
+							<template v-if="true">
 								<NuxtLink to="/user/list">
 									<el-menu-item index="3">
 										<i class="el-icon-user"></i>
