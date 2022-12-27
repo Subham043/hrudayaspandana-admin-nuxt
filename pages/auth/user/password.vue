@@ -88,7 +88,7 @@ export default {
             fullscreen: true,
             });
             try {
-                const response = await this.$privateApi.post('/profile/password/update', {old_password:this.old_password, password:this.password}); // eslint-disable-line
+                const response = await this.$privateApi.post('/api/auth/password-update', {old_password:this.old_password, password:this.password}); // eslint-disable-line
                 this.old_password= '';
                 this.password= '';
                 this.cpassword= '';

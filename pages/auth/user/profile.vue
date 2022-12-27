@@ -98,12 +98,12 @@ export default {
             fullscreen: true,
             });
             try {
-                const response = await this.$privateApi.patch('/profile/update', {email:this.email, name:this.name, phone:this.phone}); // eslint-disable-line
+                const response = await this.$privateApi.post('/api/auth/profile-update', {email:this.email, first_name:this.first_name,  last_name:this.last_name, phone:this.phone}); // eslint-disable-line
                 const user = {...this.$auth.user}
-                user.email = response.data.data.email;
-                user.first_name = response.data.data.first_name;
-                user.last_name = response.data.data.last_name;
-                user.phone = response.data.data.phone;
+                user.email = response.data.user.email;
+                user.first_name = response.data.user.first_name;
+                user.last_name = response.data.user.last_name;
+                user.phone = response.data.user.phone;
                 this.$auth.setUser(user)
                 this.$toast.success('Profile updated successfully')
             } catch (err) {
