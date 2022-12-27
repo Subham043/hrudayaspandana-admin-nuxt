@@ -28,7 +28,7 @@
         </div>
         
         <div class="ps-20 text-left">
-          <h5 class="mb-0">{{$auth.user.name ? $auth.user.name : "Anonymous"}}</h5>
+          <h5 class="mb-0">{{$auth.user.first_name ? $auth.user.first_name : "Anonymous"}}</h5>
           <p class="my-5 text-fade">{{$auth.user.role}}</p>
           <a href="mailto:dummy@gmail.com"
           >
@@ -39,7 +39,7 @@
     </div>
     <div class="dropdown-divider my-30"></div>
     <div>
-      <NuxtLink to="/user/profile">
+      <NuxtLink to="/auth/user/profile">
         <div class="d-flex align-items-center mb-30 justify-content-between">
           <div
             class="me-15 bg-primary-light h-50 w-50 l-h-60 rounded text-center"
@@ -57,7 +57,7 @@
           </div>
         </div>
       </NuxtLink>
-      <NuxtLink to="/user/password">
+      <NuxtLink to="/auth/user/password">
         <div class="d-flex align-items-center mb-30 justify-content-between">
           <div
             class="me-15 bg-success-light h-50 w-50 l-h-60 rounded text-center"
@@ -73,7 +73,7 @@
           </div>
         </div>
       </NuxtLink>
-      <button style="width:100%" @click="logout">
+      <a href="javascript:void(0)" style="width:100%" @click="logout">
         <div class="d-flex align-items-center mb-30 justify-content-between">
           <div
             class="me-15 bg-danger-light h-50 w-50 l-h-60 rounded text-center"
@@ -87,7 +87,7 @@
             >
           </div>
         </div>
-      </button>
+      </a>
     </div>
     <div class="dropdown-divider my-30"></div>
     

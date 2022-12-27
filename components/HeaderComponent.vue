@@ -51,7 +51,7 @@
 				<a href="javascript:void(0)" class="waves-effect waves-light dropdown-toggle w-auto l-h-12 bg-transparent p-0 no-shadow" title="User" data-bs-toggle="modal" data-bs-target="#quick_user_toggle" @click="toogleProfileBar">
 					<div class="d-flex pt-1 align-items-center">
 						<div class="text-end me-10">
-							<p class="pt-5 fs-14 mb-0 fw-700">{{$auth.user.name ? $auth.user.name : "Anonymous"}}</p>
+							<p class="pt-5 fs-14 mb-0 fw-700">{{$auth.user.first_name ? $auth.user.first_name : "Anonymous"}}</p>
 							<small class="fs-10 mb-0 text-uppercase text-mute">{{$auth.user.role}}</small>
 						</div>
 						<img src="/images/avatar/avatar-13.png" class="avatar rounded-circle bg-primary-light h-40 w-40" alt="" />

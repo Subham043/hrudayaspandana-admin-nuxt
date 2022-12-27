@@ -98,8 +98,20 @@
 										<el-menu-item index="7-2">Audios </el-menu-item>
 									</NuxtLink>
 								</el-submenu>
+								<el-submenu index="9">
+									<template slot="title">
+										<i class="el-icon-picture-outline-round"></i>
+										<span>Home Page</span>
+									</template>
+									<NuxtLink to="/home-page/banner/list">
+										<el-menu-item index="9-1">Banner </el-menu-item>
+									</NuxtLink>
+									<NuxtLink to="/home-page/banner-video">
+										<el-menu-item index="9-2">Videos </el-menu-item>
+									</NuxtLink>
+								</el-submenu>
 								<NuxtLink to="/events/list">
-									<el-menu-item index="14">
+									<el-menu-item index="15">
 										<i class="el-icon-s-marketing"></i>
 										<span>Events</span>
 									</el-menu-item>
