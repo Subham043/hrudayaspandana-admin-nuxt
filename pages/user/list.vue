@@ -11,8 +11,8 @@
                         </div>
                         <div class="box-body">
                             <el-table :data="tableData" style="width: 100%" max-height="100%">
-                                <el-table-column fixed prop="id" label="ID" width="150">
-                                </el-table-column>
+                                <!-- <el-table-column fixed prop="id" label="ID" width="150">
+                                </el-table-column> -->
                                 <el-table-column prop="first_name" label="First Name" width="250">
                                 </el-table-column>
                                 <el-table-column prop="last_name" label="Last Name" width="250">
@@ -118,8 +118,8 @@ export default {
             });
             try {
                 const response = await this.$privateApi.get('/api/user/paginate?page='+page); // eslint-disable-line
-                this.tableData = response?.data?.data?.data
-                this.count = response?.data?.data?.total
+                this.tableData = response?.data?.data
+                this.count = response?.data?.meta?.total
                 this.currentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line

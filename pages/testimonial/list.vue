@@ -95,8 +95,8 @@ export default {
             });
             try {
                 const response = await this.$privateApi.get('/api/testimonial/paginate?page='+page); // eslint-disable-line
-                this.tableData = response?.data?.data?.data
-                this.count = response?.data?.data?.total
+                this.tableData = response?.data?.data
+                this.count = response?.data?.meta?.total
                 this.currentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
