@@ -98,18 +98,12 @@
 										<el-menu-item index="7-2">Audios </el-menu-item>
 									</NuxtLink>
 								</el-submenu>
-								<el-submenu index="9">
-									<template slot="title">
-										<i class="el-icon-price-tag"></i>
-										<span>Enquiries</span>
-									</template>
-									<NuxtLink to="/enquiries/contact-form">
-										<el-menu-item index="9-1">Contact Form </el-menu-item>
-									</NuxtLink>
-									<NuxtLink to="/enquiries/demo-session">
-										<el-menu-item index="9-2">Demo Session </el-menu-item>
-									</NuxtLink>
-								</el-submenu>
+								<NuxtLink to="/events/list">
+									<el-menu-item index="14">
+										<i class="el-icon-s-marketing"></i>
+										<span>Events</span>
+									</el-menu-item>
+								</NuxtLink>
 							</template>
 						</el-menu>
 						<!-- sidebar menu-->
