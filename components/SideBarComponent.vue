@@ -83,6 +83,12 @@
 										<span>E-Hundi</span>
 									</el-menu-item>
 								</NuxtLink>
+								<NuxtLink to="/donation/list">
+									<el-menu-item index="16">
+										<i class="el-icon-price-tag"></i>
+										<span>Donation</span>
+									</el-menu-item>
+								</NuxtLink>
 								<el-submenu index="7">
 									<template slot="title">
 										<i class="el-icon-picture-outline"></i>

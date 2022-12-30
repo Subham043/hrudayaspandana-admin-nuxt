@@ -1,14 +1,13 @@
 <template>
     <div>
-        <BreadcrumbComponent main-page="E-Hundi" current-page="List" />
+        <BreadcrumbComponent main-page="Donation" current-page="List" />
         <section class="content">
             <div class="row">
 
                 <div class="col-12">
                     <div class="box">
                         <div class="box-header d-flex justify-content-between align-items-center">
-                            <h4 class="box-title">E-Hundi</h4>
-                            <NuxtLink to="/e-hundi/create"><el-button type="warning">Create</el-button></NuxtLink>
+                            <h4 class="box-title">Donation</h4>
                         </div>
                         <div class="box-body">
                             <el-table :data="tableData" style="width: 100%" max-height="100%">
@@ -24,6 +23,18 @@
                                 </el-table-column>
                                 <el-table-column prop="amount" label="Amount" width="250">
                                 </el-table-column>
+                                <el-table-column label="Status" width="250">
+                                    <template slot-scope="scope">
+                                        <el-tag v-if="scope.row.status===0" size="medium" type="danger">{{ scope.row.status_name }}</el-tag>
+                                        <el-tag v-else size="medium" type="success">{{ scope.row.status_name }}</el-tag>
+                                    </template>
+                                </el-table-column>
+                                <el-table-column prop="receipt" label="Receipt" width="250">
+                                </el-table-column>
+                                <el-table-column prop="order_id" label="Order ID" width="250">
+                                </el-table-column>
+                                <el-table-column prop="payment_id" label="Payment ID" width="250">
+                                </el-table-column>
                                 <el-table-column prop="pan" label="Pan No." width="250">
                                 </el-table-column>
                                 <el-table-column prop="city" label="City" width="250">
@@ -37,10 +48,8 @@
                                         {{$dateFns.format(new Date(scope.row.created_at), 'dd-MMM-yyyy hh:mm aa')}}
                                     </template>
                                 </el-table-column>
-                                <el-table-column fixed="right" label="Operations" width="200">
+                                <!-- <el-table-column fixed="right" label="Operations" width="200">
                                     <template slot-scope="scope">
-                                        <NuxtLink :to="`/e-hundi/edit/${scope.row.id}`"><el-button type="primary" icon="el-icon-edit" circle></el-button></NuxtLink>
-                                        <NuxtLink :to="`/e-hundi/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>
                                         <el-popconfirm
                                         confirm-button-text='OK'
                                         cancel-button-text='No, Thanks'
@@ -54,7 +63,7 @@
                                         ></el-button>
                                         </el-popconfirm>
                                     </template>
-                                </el-table-column>
+                                </el-table-column> -->
                             </el-table>
                         </div>
                         <div class="box-footer text-center">
@@ -102,7 +111,7 @@ export default {
                 fullscreen: true,
             });
             try {
-                const response = await this.$privateApi.get('/api/e-hundi/paginate?page='+page); // eslint-disable-line
+                const response = await this.$privateApi.get('/api/donation/paginate?page='+page); // eslint-disable-line
                 this.tableData = response?.data?.data
                 this.count = response?.data?.meta?.total
                 this.currentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
@@ -122,7 +131,7 @@ export default {
             });
             try {
                 // eslint-disable-next-line no-unused-vars
-                const response = await this.$privateApi.delete('/api/e-hundi/delete/'+id);
+                const response = await this.$privateApi.delete('/api/donation/delete/'+id);
                 const newTableData = this.tableData.filter((item)=>{
                     return item.id!==id;
                 })

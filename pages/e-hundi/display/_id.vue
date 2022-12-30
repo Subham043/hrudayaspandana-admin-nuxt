@@ -95,6 +95,15 @@
                                         <span :class="classes">{{ errors[0] }}</span>
                                         </ValidationProvider>
                                     </div>
+                                    <div v-if="trust===1" class="col-md-3">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required" name="pan">
+                                        <div class="form-group">
+                                            <label class="form-label">Pan No. *</label>
+                                            <el-input v-model="pan" :disabled="true" style="width: 100%;" placeholder="Enter Pan No."></el-input>
+                                        </div>
+                                        <span :class="classes">{{ errors[0] }}</span>
+                                        </ValidationProvider>
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.box-body -->
@@ -130,6 +139,7 @@ export default {
             city: '',
             state: '',
             amount: '',
+            pan: '',
             TrustType: [{
                 value: 1,
                 label: 'Sai Mayee Trust',
@@ -172,6 +182,7 @@ export default {
                 this.state = response.data.data.state;
                 this.trust = response.data.data.trust;
                 this.amount = response.data.data.amount;
+                this.pan = response.data.data.pan;
             } catch (err) {
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)

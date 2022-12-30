@@ -95,6 +95,15 @@
                                         <span :class="classes">{{ errors[0] }}</span>
                                         </ValidationProvider>
                                     </div>
+                                    <div v-if="trust===1" class="col-md-3">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required" name="pan">
+                                        <div class="form-group">
+                                            <label class="form-label">Pan No. *</label>
+                                            <el-input v-model="pan" style="width: 100%;" placeholder="Enter Pan No."></el-input>
+                                        </div>
+                                        <span :class="classes">{{ errors[0] }}</span>
+                                        </ValidationProvider>
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.box-body -->
@@ -133,6 +142,7 @@ export default {
             city: '',
             state: '',
             amount: '',
+            pan: '',
             TrustType: [{
                 value: 1,
                 label: 'Sai Mayee Trust',
@@ -168,6 +178,7 @@ export default {
                 formData.append('state', this.state);
                 formData.append('amount', this.amount);
                 formData.append('trust', this.trust);
+                formData.append('pan', this.pan);
                 const response = await this.$privateApi.post('/api/e-hundi/edit/'+this.$route.params.id, formData); // eslint-disable-line
                 this.$toast.success('Data updated successfully')
                 this.$router.push(this.$nuxt.context.from.path);
@@ -182,6 +193,7 @@ export default {
                     city: err?.response?.data?.errors?.city,
                     state: err?.response?.data?.errors?.state,
                     trust: err?.response?.data?.errors?.trust,
+                    pan: err?.response?.data?.errors?.pan,
                 });
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
@@ -209,6 +221,7 @@ export default {
                 this.state = response.data.data.state;
                 this.trust = response.data.data.trust;
                 this.amount = response.data.data.amount;
+                this.pan = response.data.data.pan;
             } catch (err) {
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
