@@ -96,8 +96,8 @@ export default {
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
                 this.$refs.form.setErrors({
-                old_password: err?.response?.data?.form_error?.old_password,
-                password: err?.response?.data?.form_error?.password,
+                old_password: err?.response?.data?.errors?.old_password,
+                password: err?.response?.data?.errors?.password,
                 });
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)

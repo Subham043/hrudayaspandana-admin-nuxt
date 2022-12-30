@@ -109,10 +109,10 @@ export default {
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
                 this.$refs.form.setErrors({
-                email: err?.response?.data?.form_error?.email,
-                first_name: err?.response?.data?.form_error?.first_name,
-                last_name: err?.response?.data?.form_error?.last_name,
-                phone: err?.response?.data?.form_error?.phone,
+                email: err?.response?.data?.errors?.email,
+                first_name: err?.response?.data?.errors?.first_name,
+                last_name: err?.response?.data?.errors?.last_name,
+                phone: err?.response?.data?.errors?.phone,
                 });
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)

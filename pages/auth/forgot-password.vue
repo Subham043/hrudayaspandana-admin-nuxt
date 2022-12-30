@@ -80,7 +80,7 @@
           } catch (err) {
               // console.log(err.response);// eslint-disable-line
               this.$refs.form.setErrors({
-                email: err?.response?.data?.form_error?.email,
+                email: err?.response?.data?.errors?.email,
               });
               
           } finally{
