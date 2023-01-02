@@ -36,6 +36,18 @@
                                         cancel-button-text='No, Thanks'
                                         icon="el-icon-info"
                                         icon-color="red"
+                                        title="Are you sure to send this?"
+                                        @confirm="sendRow(scope.row.id)"
+                                        >
+                                        <el-button
+                                        slot="reference" type="warning" icon="el-icon-s-promotion"  circle
+                                        ></el-button>
+                                        </el-popconfirm>
+                                        <el-popconfirm
+                                        confirm-button-text='OK'
+                                        cancel-button-text='No, Thanks'
+                                        icon="el-icon-info"
+                                        icon-color="red"
                                         title="Are you sure to delete this?"
                                         @confirm="deleteRow(scope.row.id)"
                                         >
@@ -118,6 +130,22 @@ export default {
                 })
                 this.tableData = newTableData;
                 this.$toast.success('Data deleted successfully')
+            } catch (err) {
+                if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+            } finally {
+                loading.close()
+            }
+        },
+        async sendRow(id){
+            const loading = this.$loading({
+                lock: true,
+                fullscreen: true,
+            });
+            try {
+                // eslint-disable-next-line no-unused-vars
+                const response = await this.$privateApi.get('/api/email/send/'+id);
+                this.$toast.success('Email sent successfully')
             } catch (err) {
                 if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
