@@ -97,7 +97,7 @@ export default {
             });
             if(!this.$route.params.id){
                 this.$toast.error('Invalid ID')
-                this.$router.push('/gallery/images/list');
+                this.$router.push('/events/list');
             }
             try {
                 const response = await this.$privateApi.get('/api/event/gallery/image/'+this.$route.params.event+'/display/'+this.$route.params.id); // eslint-disable-line
@@ -107,7 +107,7 @@ export default {
             } catch (err) {
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-                this.$router.push('/gallery/images/list');
+                this.$router.push('/events/list');
             } finally{
                 loading.close()
             }
