@@ -1,22 +1,27 @@
 <template>
     <div>
-        <BreadcrumbComponent main-page="Events" current-page="List" />
+        <BreadcrumbComponent main-page="Images" current-page="List" />
         <section class="content">
             <div class="row">
 
                 <div class="col-12">
                     <div class="box">
                         <div class="box-header d-flex justify-content-between align-items-center">
-                            <h4 class="box-title">Events</h4>
+                            <h4 class="box-title">Images</h4>
                             <div>
-                                <NuxtLink to="/events/create"><el-button type="warning">Create</el-button></NuxtLink>
+                                <NuxtLink :to="`/events/list`"><button type="button" class="btn btn-primary-light me-1">
+                                    Go Back
+                                </button></NuxtLink>
+                                <NuxtLink :to="`/events/images/${$route.params.event}/create`"><el-button type="warning">Create</el-button></NuxtLink>
                             </div>
                         </div>
                         <div class="box-body">
                             <el-table :data="tableData" style="width: 100%" max-height="100%">
                                 <el-table-column fixed prop="id" label="ID">
                                 </el-table-column>
-                                <el-table-column prop="name" width="250" label="Name">
+                                <el-table-column prop="title" label="Title">
+                                </el-table-column>
+                                <el-table-column prop="description" width="250" label="Description">
                                 </el-table-column>
                                 <el-table-column label="Category" width="250">
                                     <template slot-scope="scope">
@@ -24,21 +29,7 @@
                                         <el-tag v-else size="medium" type="danger">Manava Seva</el-tag>
                                     </template>
                                 </el-table-column>
-                                <el-table-column label="Status" width="250">
-                                    <template slot-scope="scope">
-                                        <el-tag v-if="scope.row.status===0" size="medium" type="success">Active</el-tag>
-                                        <el-tag v-else size="medium" type="danger">Completed</el-tag>
-                                    </template>
-                                </el-table-column>
-                                <el-table-column  width="250" label="Start Date">
-                                    <template slot-scope="scope">
-                                        {{$dateFns.format(new Date(scope.row.sdate), 'dd-MMM-yyyy')}}
-                                    </template>
-                                </el-table-column>
-                                <el-table-column  width="250" label="End Date">
-                                    <template slot-scope="scope">
-                                        {{$dateFns.format(new Date(scope.row.edate), 'dd-MMM-yyyy')}}
-                                    </template>
+                                <el-table-column prop="image" width="350" label="Image">
                                 </el-table-column>
                                 <el-table-column  width="250" label="CreatedAt">
                                     <template slot-scope="scope">
@@ -47,21 +38,8 @@
                                 </el-table-column>
                                 <el-table-column fixed="right" label="Operations" width="200">
                                     <template slot-scope="scope">
-                                        <NuxtLink :to="`/events/edit/${scope.row.id}`"><el-button type="primary" icon="el-icon-edit" circle></el-button></NuxtLink>
-                                        <NuxtLink :to="`/events/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>
-                                        <NuxtLink :to="`/events/images/${scope.row.id}/list`"><el-button type="info" icon="el-icon-picture-outline" circle></el-button></NuxtLink>
-                                        <el-popconfirm
-                                        confirm-button-text='OK'
-                                        cancel-button-text='No, Thanks'
-                                        icon="el-icon-info"
-                                        icon-color="red"
-                                        :title="scope.row.status===0 ? `Are you sure to complete this?` : `Are you sure to make this active?`"
-                                        @confirm="statusRow(scope.row.id)"
-                                        >
-                                        <el-button
-                                        slot="reference" type="warning" :icon="scope.row.status==0 ? 'el-icon-circle-close' : 'el-icon-circle-check'"  circle
-                                        ></el-button>
-                                        </el-popconfirm>
+                                        <NuxtLink :to="`/events/images/${$route.params.event}/edit/${scope.row.id}`"><el-button type="primary" icon="el-icon-edit" circle></el-button></NuxtLink>
+                                        <NuxtLink :to="`/events/images/${$route.params.event}/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>
                                         <el-popconfirm
                                         confirm-button-text='OK'
                                         cancel-button-text='No, Thanks'
@@ -123,7 +101,7 @@ export default {
                 fullscreen: true,
             });
             try {
-                const response = await this.$privateApi.get('/api/event/paginate?page='+page); // eslint-disable-line
+                const response = await this.$privateApi.get('/api/event/gallery/image/'+this.$route.params.event+'/paginate?page='+page); // eslint-disable-line
                 this.tableData = response?.data?.data
                 this.count = response?.data?.meta?.total
                 this.currentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
@@ -143,29 +121,12 @@ export default {
             });
             try {
                 // eslint-disable-next-line no-unused-vars
-                const response = await this.$privateApi.delete('/api/event/delete/'+id);
+                const response = await this.$privateApi.delete('/api/event/gallery/image/'+this.$route.params.event+'/delete/'+id);
                 const newTableData = this.tableData.filter((item)=>{
                     return item.id!==id;
                 })
                 this.tableData = newTableData;
                 this.$toast.success('Data deleted successfully')
-            } catch (err) {
-                if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-            } finally {
-                loading.close()
-            }
-        },
-        async statusRow(id){
-            const loading = this.$loading({
-                lock: true,
-                fullscreen: true,
-            });
-            try {
-                // eslint-disable-next-line no-unused-vars
-                const response = await this.$privateApi.get('/api/event/status/'+id);
-                this.handlePageChnage();
-                this.$toast.success('Data updated successfully')
             } catch (err) {
                 if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
