@@ -54,6 +54,18 @@
                                         cancel-button-text='No, Thanks'
                                         icon="el-icon-info"
                                         icon-color="red"
+                                        :title="scope.row.status===0 ? `Are you sure to complete this?` : `Are you sure to make this active?`"
+                                        @confirm="statusRow(scope.row.id)"
+                                        >
+                                        <el-button
+                                        slot="reference" type="warning" :icon="scope.row.status==0 ? 'el-icon-circle-close' : 'el-icon-circle-check'"  circle
+                                        ></el-button>
+                                        </el-popconfirm>
+                                        <el-popconfirm
+                                        confirm-button-text='OK'
+                                        cancel-button-text='No, Thanks'
+                                        icon="el-icon-info"
+                                        icon-color="red"
                                         title="Are you sure to delete this?"
                                         @confirm="deleteRow(scope.row.id)"
                                         >
@@ -136,6 +148,23 @@ export default {
                 })
                 this.tableData = newTableData;
                 this.$toast.success('Data deleted successfully')
+            } catch (err) {
+                if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+            } finally {
+                loading.close()
+            }
+        },
+        async statusRow(id){
+            const loading = this.$loading({
+                lock: true,
+                fullscreen: true,
+            });
+            try {
+                // eslint-disable-next-line no-unused-vars
+                const response = await this.$privateApi.get('/api/event/status/'+id);
+                this.handlePageChnage();
+                this.$toast.success('Data updated successfully')
             } catch (err) {
                 if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
