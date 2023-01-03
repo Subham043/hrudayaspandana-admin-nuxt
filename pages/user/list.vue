@@ -177,15 +177,8 @@ export default {
             });
             try {
                 // eslint-disable-next-line no-unused-vars
-                const response = await this.$privateApi.get('/api/user/excel',{responseType: 'arraybuffer'});
-                console.log(response.data);
-                const blob = new Blob([response.data])
-                const url = window.URL.createObjectURL(blob)
-                const link = document.createElement('a')
-                link.href = url
-                link.setAttribute('download', 'user.xlsx')
-                document.body.appendChild(link)
-                link.click()
+                const response = await this.$privateApi.get('/api/user/excel');
+                window.open(response.data.data, '_blank');
             } catch (err) {
                 if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
