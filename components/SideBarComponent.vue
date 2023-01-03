@@ -16,7 +16,7 @@
 						<!-- sidebar menu-->
 						<el-menu default-active="2" class="el-menu-vertical-demo">
 							<el-divider content-position="left">Admin Menu</el-divider>
-							<NuxtLink to="/dashboard">
+							<NuxtLink to="/">
 								<el-menu-item index="8">
 									<i class="el-icon-s-home"></i>
 									<span>Dashboard</span>

@@ -32,6 +32,7 @@ export default {
     '~/plugins/privateApi.js',
     '~/plugins/pagination.js',
     '~/plugins/vue-slick-carousel.js',
+    '~/plugins/chart.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -8,6 +8,9 @@
                     <div class="box">
                         <div class="box-header d-flex justify-content-between align-items-center">
                             <h4 class="box-title">User</h4>
+                            <div>
+                                <el-button type="primary" @click="downloadExcel">Excel</el-button>
+                            </div>
                         </div>
                         <div class="box-body">
                             <el-table :data="tableData" style="width: 100%" max-height="100%">
@@ -160,6 +163,29 @@ export default {
                 const response = await this.$privateApi.get('/api/user/status/'+id);
                 this.handlePageChnage();
                 this.$toast.success('Data updated successfully')
+            } catch (err) {
+                if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+            } finally {
+                loading.close()
+            }
+        },
+        async downloadExcel(){
+            const loading = this.$loading({
+                lock: true,
+                fullscreen: true,
+            });
+            try {
+                // eslint-disable-next-line no-unused-vars
+                const response = await this.$privateApi.get('/api/user/excel',{responseType: 'arraybuffer'});
+                console.log(response.data);
+                const blob = new Blob([response.data])
+                const url = window.URL.createObjectURL(blob)
+                const link = document.createElement('a')
+                link.href = url
+                link.setAttribute('download', 'user.xlsx')
+                document.body.appendChild(link)
+                link.click()
             } catch (err) {
                 if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
