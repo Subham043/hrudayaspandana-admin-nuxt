@@ -8,6 +8,7 @@
                     <div class="box">
                         <div class="box-header d-flex justify-content-between align-items-center">
                             <h4 class="box-title">Enquiry</h4>
+                            <el-button type="primary" @click="downloadExcel">Excel</el-button>
                         </div>
                         <div class="box-body">
                             <el-table :data="tableData" style="width: 100%" max-height="100%">
@@ -117,6 +118,22 @@ export default {
                 })
                 this.tableData = newTableData;
                 this.$toast.success('Data deleted successfully')
+            } catch (err) {
+                if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+            } finally {
+                loading.close()
+            }
+        },
+        async downloadExcel(){
+            const loading = this.$loading({
+                lock: true,
+                fullscreen: true,
+            });
+            try {
+                // eslint-disable-next-line no-unused-vars
+                const response = await this.$privateApi.get('/api/contact/excel');
+                window.open(response.data.data, '_blank');
             } catch (err) {
                 if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
