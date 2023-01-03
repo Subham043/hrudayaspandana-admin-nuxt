@@ -45,7 +45,7 @@
                                         {{$dateFns.format(new Date(scope.row.created_at), 'dd-MMM-yyyy hh:mm aa')}}
                                     </template>
                                 </el-table-column>
-                                <el-table-column fixed="right" label="Operations" width="200">
+                                <el-table-column fixed="right" label="Operations" width="300">
                                     <template slot-scope="scope">
                                         <NuxtLink :to="`/events/edit/${scope.row.id}`"><el-button type="primary" icon="el-icon-edit" circle></el-button></NuxtLink>
                                         <NuxtLink :to="`/events/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>

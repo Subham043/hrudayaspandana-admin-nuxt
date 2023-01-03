@@ -125,7 +125,7 @@
 							</template>
 						</el-menu>
 						<!-- sidebar menu-->
-						<div class="sidebar-widgets mt-100">
+						<div class="sidebar-widgets" style="margin-top:150px">
 							<div class="mx-25 mb-30 pb-20 side-bx bg-primary-light rounded20">
 								<div class="text-center">
 									<h4 class="title-bx text-primary">HRUDAYASPANDANA</h4>
