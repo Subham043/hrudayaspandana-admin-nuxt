@@ -123,7 +123,7 @@ export default {
           autoFetch: true
         },
         endpoints: {
-          login: { url: '/api/auth/login', method: 'post' },
+          login: { url: '/api/auth/admin-login', method: 'post' },
           logout: { url: '/api/auth/logout', method: 'get' },
           refresh: { url: '/api/auth/refresh-token', method: 'get' },
           user: { url: '/api/auth/profile', method: 'get' }
