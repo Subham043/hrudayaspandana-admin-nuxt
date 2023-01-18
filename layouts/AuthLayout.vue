@@ -1,5 +1,5 @@
 <template>
-<div class="hold-transition theme-primary bg-img h-p100" style="background-image: url('/images/auth-bg/bg-16.jpg')">
+<div class="hold-transition theme-primary bg-img h-p100" style="background-image: url('/admin/images/auth-bg/bg-16.jpg')">
     <div class="container h-p100">
 		<div class="row align-items-center justify-content-md-center h-p100">	
 			

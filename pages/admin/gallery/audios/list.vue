@@ -9,7 +9,7 @@
                         <div class="box-header d-flex justify-content-between align-items-center">
                             <h4 class="box-title">Audios</h4>
                             <div>
-                                <NuxtLink to="/gallery/audios/create"><el-button type="warning">Create</el-button></NuxtLink>
+                                <NuxtLink to="/admin/gallery/audios/create"><el-button type="warning">Create</el-button></NuxtLink>
                             </div>
                         </div>
                         <div class="box-body">
@@ -35,8 +35,8 @@
                                 </el-table-column>
                                 <el-table-column fixed="right" label="Operations" width="200">
                                     <template slot-scope="scope">
-                                        <NuxtLink :to="`/gallery/audios/edit/${scope.row.id}`"><el-button type="primary" icon="el-icon-edit" circle></el-button></NuxtLink>
-                                        <NuxtLink :to="`/gallery/audios/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>
+                                        <NuxtLink :to="`/admin/gallery/audios/edit/${scope.row.id}`"><el-button type="primary" icon="el-icon-edit" circle></el-button></NuxtLink>
+                                        <NuxtLink :to="`/admin/gallery/audios/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>
                                         <el-popconfirm
                                         confirm-button-text='OK'
                                         cancel-button-text='No, Thanks'

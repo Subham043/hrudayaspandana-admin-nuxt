@@ -1,8 +1,8 @@
 <template>
   <div class="bg-white rounded10 shadow-lg">
     <div class="content-top-agile p-20 pb-0">
-      <NuxtLink to="/" class="logo-lg">
-				<span class="light-logo"><img src="/images/logo.png" style="height:70px;" alt="logo"></span>
+      <NuxtLink to="/admin" class="logo-lg">
+				<span class="light-logo"><img src="/admin/images/logo.png" style="height:70px;" alt="logo"></span>
 			</NuxtLink>
       <h2 class="text-primary fw-600">Let's Get Started</h2>
       <p class="mb-0 text-fade">Reset your password to continue to Admin Panel.</p>
@@ -42,7 +42,7 @@
       <div class="text-center">
         <p class="mt-15 mb-0 text-fade">
           Remember your password?
-          <NuxtLink to="/auth/login" class="text-primary ms-5">Login</NuxtLink>
+          <NuxtLink to="/admin/auth/login" class="text-primary ms-5">Login</NuxtLink>
         </p>
       </div>
 
@@ -75,7 +75,7 @@
           try {
               const response = await this.$publicApi.post('/auth/forgot-password', {email:this.email}); // eslint-disable-line
               this.$toast.info('We have shared you an otp via email. kindly enter that in order to reset your password.')
-              this.$router.push('/auth/reset-password/'+response.data.data);
+              this.$router.push('/admin/auth/reset-password/'+response.data.data);
               // console.log(response);// eslint-disable-line
           } catch (err) {
               // console.log(err.response);// eslint-disable-line

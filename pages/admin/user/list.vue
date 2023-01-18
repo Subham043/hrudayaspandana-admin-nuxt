@@ -44,7 +44,7 @@
                                 </el-table-column>
                                 <el-table-column fixed="right" label="Operations" width="180">
                                     <template slot-scope="scope">
-                                        <NuxtLink v-if="scope.row.status!=0" :to="`/user/password/${scope.row.id}`"><el-button type="primary" icon="el-icon-key" circle></el-button></NuxtLink>
+                                        <NuxtLink v-if="scope.row.status!=0" :to="`/admin/user/password/${scope.row.id}`"><el-button type="primary" icon="el-icon-key" circle></el-button></NuxtLink>
                                         <el-popconfirm
                                         confirm-button-text='OK'
                                         cancel-button-text='No, Thanks'

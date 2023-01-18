@@ -74,7 +74,7 @@
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
-                                <NuxtLink to="/literature/list"><button type="button" class="btn btn-primary-light me-1">
+                                <NuxtLink to="/admin/literature/list"><button type="button" class="btn btn-primary-light me-1">
                                     <i class="el-icon-close"></i> Cancel
                                 </button></NuxtLink>
                                 <button type="submit" class="btn btn-primary">

@@ -14,15 +14,15 @@
 		</ul> 
 	</div>
 	<div class="d-md-flex d-none align-items-center logo-box justify-content-end">		
-		<NuxtLink to="/" class="logo-lg">
-			<span class="light-logo"><img class="header-logo" src="/images/logo.png" alt="logo"></span>
+		<NuxtLink to="/admin" class="logo-lg">
+			<span class="light-logo"><img class="header-logo" src="/admin/images/logo.png" alt="logo"></span>
 		</NuxtLink>
 	</div> 
 		
       <div class="navbar-custom-menu r-side">
         <ul class="nav navbar-nav">
 			<li class="btn-group d-xl-inline-flex d-none">
-				<NuxtLink to="/" data-provide="fullscreen" class="waves-effect skin-toggle waves-light" title="Full Screen" @click="toggleFullScreen">
+				<NuxtLink to="/admin" data-provide="fullscreen" class="waves-effect skin-toggle waves-light" title="Full Screen" @click="toggleFullScreen">
 					<label class="switch">
 						<span class="switch-on">
 							<i class="el-icon-s-home"></i>
@@ -54,7 +54,7 @@
 							<p class="pt-5 fs-14 mb-0 fw-700">{{$auth.user.first_name ? $auth.user.first_name : "Anonymous"}}</p>
 							<small class="fs-10 mb-0 text-uppercase text-mute">{{$auth.user.role}}</small>
 						</div>
-						<img src="/images/avatar/avatar-13.png" class="avatar rounded-circle bg-primary-light h-40 w-40" alt="" />
+						<img src="/admin/images/avatar/avatar-13.png" class="avatar rounded-circle bg-primary-light h-40 w-40" alt="" />
 					</div>
 				</a>
 			</li>		  

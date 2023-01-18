@@ -20,7 +20,7 @@
       <div class="d-flex flex-row">
         <div class="">
           <img
-            src="/images/avatar/avatar-13.png"
+            src="/admin/images/avatar/avatar-13.png"
             alt="user"
             class="rounded bg-danger-light w-150"
             width="100"
@@ -39,7 +39,7 @@
     </div>
     <div class="dropdown-divider my-30"></div>
     <div>
-      <NuxtLink to="/auth/user/profile">
+      <NuxtLink to="/admin/auth/user/profile">
         <div class="d-flex align-items-center mb-30 justify-content-between">
           <div
             class="me-15 bg-primary-light h-50 w-50 l-h-60 rounded text-center"
@@ -57,7 +57,7 @@
           </div>
         </div>
       </NuxtLink>
-      <NuxtLink to="/auth/user/password">
+      <NuxtLink to="/admin/auth/user/password">
         <div class="d-flex align-items-center mb-30 justify-content-between">
           <div
             class="me-15 bg-success-light h-50 w-50 l-h-60 rounded text-center"

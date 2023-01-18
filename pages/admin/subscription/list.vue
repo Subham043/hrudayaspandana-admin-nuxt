@@ -10,7 +10,7 @@
                             <h4 class="box-title">Subscription</h4>
                             <div>
                                 <el-button type="primary" @click="downloadExcel">Excel</el-button>
-                                <NuxtLink to="/subscription/create"><el-button type="warning">Create</el-button></NuxtLink>
+                                <NuxtLink to="/admin/subscription/create"><el-button type="warning">Create</el-button></NuxtLink>
                             </div>
                         </div>
                         <div class="box-body">
@@ -60,8 +60,8 @@
                                 </el-table-column>
                                 <el-table-column fixed="right" label="Operations" width="200">
                                     <template slot-scope="scope">
-                                        <NuxtLink :to="`/subscription/edit/${scope.row.id}`"><el-button type="primary" icon="el-icon-edit" circle></el-button></NuxtLink>
-                                        <NuxtLink :to="`/subscription/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>
+                                        <NuxtLink :to="`/admin/subscription/edit/${scope.row.id}`"><el-button type="primary" icon="el-icon-edit" circle></el-button></NuxtLink>
+                                        <NuxtLink :to="`/admin/subscription/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>
                                         <el-popconfirm
                                         confirm-button-text='OK'
                                         cancel-button-text='No, Thanks'

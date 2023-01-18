@@ -108,7 +108,7 @@
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
-                                <NuxtLink to="/e-hundi/list"><button type="button" class="btn btn-primary-light me-1">
+                                <NuxtLink to="/admin/e-hundi/list"><button type="button" class="btn btn-primary-light me-1">
                                     Go Back
                                 </button></NuxtLink>
                             </div>
@@ -170,7 +170,7 @@ export default {
             });
             if(!this.$route.params.id){
                 this.$toast.error('Invalid ID')
-                this.$router.push('/e-hundi/list');
+                this.$router.push('/admin/e-hundi/list');
             }
             try {
                 const response = await this.$privateApi.get('/api/e-hundi/display/'+this.$route.params.id); // eslint-disable-line
@@ -186,7 +186,7 @@ export default {
             } catch (err) {
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-                this.$router.push('/e-hundi/list');
+                this.$router.push('/admin/e-hundi/list');
             } finally{
                 loading.close()
             }

@@ -52,7 +52,7 @@
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
-                                <NuxtLink to="/gallery/videos/list"><button type="button" class="btn btn-primary-light me-1">
+                                <NuxtLink to="/admin/gallery/videos/list"><button type="button" class="btn btn-primary-light me-1">
                                     Go Back
                                 </button></NuxtLink>
                             </div>
@@ -109,7 +109,7 @@ export default {
             });
             if(!this.$route.params.id){
                 this.$toast.error('Invalid ID')
-                this.$router.push('/gallery/videos/list');
+                this.$router.push('/admin/gallery/videos/list');
             }
             try {
                 const response = await this.$privateApi.get('/api/gallery-video/display/'+this.$route.params.id); // eslint-disable-line
@@ -118,7 +118,7 @@ export default {
             } catch (err) {
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-                this.$router.push('/gallery/videos/list');
+                this.$router.push('/admin/gallery/videos/list');
             } finally{
                 loading.close()
             }

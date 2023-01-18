@@ -1,8 +1,8 @@
 <template>
   <div class="bg-white rounded10 shadow-lg">
     <div class="content-top-agile p-20 pb-0">
-      <NuxtLink to="/" class="logo-lg">
-				<span class="light-logo"><img src="/images/logo.png" style="height:70px;" alt="logo"></span>
+      <NuxtLink to="/admin" class="logo-lg">
+				<span class="light-logo"><img src="/admin/images/logo.png" style="height:70px;" alt="logo"></span>
 			</NuxtLink>
       <h2 class="text-primary fw-600">Let's Get Started</h2>
       <p class="mb-0 text-fade">Sign in to continue to Admin Panel.</p>
@@ -54,7 +54,7 @@
           <div class="col-6">
             <div class="fog-pwd text-end">
               <NuxtLink
-                to="/auth/forgot-password"
+                to="/admin/auth/forgot-password"
                 class="text-primary fw-500 hover-primary"
                 ><i class="ion ion-locked"></i> Forgot password?</NuxtLink
               ><br />

@@ -21689,7 +21689,7 @@ body .main-header .navbar .nav > li.search-box > a:hover, body .main-header .nav
   position: relative;
   width: 100%;
   padding: 10px 0 10px;
-  background-image: url('/images/user-info.jpg'); }
+  background-image: url('/admin/images/user-info.jpg'); }
   .user-panel:before, .user-panel:after {
     content: " ";
     display: table; }

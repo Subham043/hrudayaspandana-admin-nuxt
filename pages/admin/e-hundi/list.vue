@@ -10,7 +10,7 @@
                             <h4 class="box-title">E-Hundi</h4>
                             <div>
                                 <el-button type="primary" @click="downloadExcel">Excel</el-button>
-                                <NuxtLink to="/e-hundi/create"><el-button type="warning">Create</el-button></NuxtLink>
+                                <NuxtLink to="/admin/e-hundi/create"><el-button type="warning">Create</el-button></NuxtLink>
                             </div>
                         </div>
                         <div class="box-body">
@@ -42,8 +42,8 @@
                                 </el-table-column>
                                 <el-table-column fixed="right" label="Operations" width="200">
                                     <template slot-scope="scope">
-                                        <NuxtLink :to="`/e-hundi/edit/${scope.row.id}`"><el-button type="primary" icon="el-icon-edit" circle></el-button></NuxtLink>
-                                        <NuxtLink :to="`/e-hundi/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>
+                                        <NuxtLink :to="`/admin/e-hundi/edit/${scope.row.id}`"><el-button type="primary" icon="el-icon-edit" circle></el-button></NuxtLink>
+                                        <NuxtLink :to="`/admin/e-hundi/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>
                                         <el-popconfirm
                                         confirm-button-text='OK'
                                         cancel-button-text='No, Thanks'

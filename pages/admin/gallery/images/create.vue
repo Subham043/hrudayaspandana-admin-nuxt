@@ -65,7 +65,7 @@
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
-                                <NuxtLink to="/gallery/images/list"><button type="button" class="btn btn-primary-light me-1">
+                                <NuxtLink to="/admin/gallery/images/list"><button type="button" class="btn btn-primary-light me-1">
                                     <i class="el-icon-close"></i> Cancel
                                 </button></NuxtLink>
                                 <button type="submit" class="btn btn-primary">

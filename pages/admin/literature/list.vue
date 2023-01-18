@@ -8,7 +8,7 @@
                     <div class="box">
                         <div class="box-header d-flex justify-content-between align-items-center">
                             <h4 class="box-title">Literature</h4>
-                            <NuxtLink to="/literature/create"><el-button type="warning">Create</el-button></NuxtLink>
+                            <NuxtLink to="/admin/literature/create"><el-button type="warning">Create</el-button></NuxtLink>
                         </div>
                         <div class="box-body">
                             <el-table :data="tableData" style="width: 100%" max-height="100%">
@@ -29,8 +29,8 @@
                                 </el-table-column>
                                 <el-table-column label="Operations" width="200">
                                     <template slot-scope="scope">
-                                        <NuxtLink :to="`/literature/edit/${scope.row.id}`"><el-button type="primary" icon="el-icon-edit" circle></el-button></NuxtLink>
-                                        <NuxtLink :to="`/literature/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>
+                                        <NuxtLink :to="`/admin/literature/edit/${scope.row.id}`"><el-button type="primary" icon="el-icon-edit" circle></el-button></NuxtLink>
+                                        <NuxtLink :to="`/admin/literature/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>
                                         <el-popconfirm
                                         confirm-button-text='OK'
                                         cancel-button-text='No, Thanks'

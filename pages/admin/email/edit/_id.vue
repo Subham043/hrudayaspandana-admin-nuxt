@@ -64,7 +64,7 @@
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
-                                <NuxtLink to="/email/list"><button type="button" class="btn btn-primary-light me-1">
+                                <NuxtLink to="/admin/email/list"><button type="button" class="btn btn-primary-light me-1">
                                     <i class="el-icon-close"></i> Cancel
                                 </button></NuxtLink>
                                 <button type="submit" class="btn btn-primary">
@@ -162,7 +162,7 @@ export default {
             });
             if(!this.$route.params.id){
                 this.$toast.error('Invalid ID')
-                this.$router.push('/email/list');
+                this.$router.push('/admin/email/list');
             }
             try {
                 const response = await this.$privateApi.get('/api/email/display/'+this.$route.params.id); // eslint-disable-line
@@ -175,7 +175,7 @@ export default {
             } catch (err) {
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-                this.$router.push('/email/list');
+                this.$router.push('/admin/email/list');
             } finally{
                 loading.close()
             }
