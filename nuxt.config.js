@@ -1,9 +1,5 @@
 
 export default {
-  server: {
-    port: 3300, // default: 3000
-    host: '0.0.0.0' // default: localhost
-  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Hrudayaspandana',
@@ -14,17 +10,17 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
       { httpEquiv: 'X-UA-Compatible', content: 'IE=edge' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/admin/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     'element-ui/lib/theme-chalk/index.css',
-    '~/static/admin/css/bootstrap.min.css',
-    '~/static/admin/css/color_theme.css',
-    '~/static/admin/css/skin_color.css',
-    '~/static/admin/css/style_rtl.css',
-    '~/static/admin/css/style.css',
+    '~/static/css/bootstrap.min.css',
+    '~/static/css/color_theme.css',
+    '~/static/css/skin_color.css',
+    '~/static/css/style_rtl.css',
+    '~/static/css/style.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

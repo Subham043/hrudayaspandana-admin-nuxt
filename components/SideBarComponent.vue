@@ -7,8 +7,8 @@
 			<!-- sidebar-->
 			<section class="sidebar position-relative">
 				<div class="d-flex align-items-center logo-box justify-content-start" :style="screenWidth > 500 ? '19.29rem' : `${screenWidth-80}px`">
-					<NuxtLink to="/admin" class="logo-lg">
-						<span class="light-logo"><img src="/admin/images/logo.png" alt="logo"></span>
+					<NuxtLink to="/" class="logo-lg">
+						<span class="light-logo"><img src="/images/logo.png" alt="logo"></span>
 					</NuxtLink>
 				</div>
 				<div class="multinav" :style="screenWidth > 500 ? 'width:19.29rem' : `width:${screenWidth-80}px`">
@@ -16,74 +16,74 @@
 						<!-- sidebar menu-->
 						<el-menu default-active="2" class="el-menu-vertical-demo">
 							<el-divider content-position="left">Admin Menu</el-divider>
-							<NuxtLink to="/admin">
+							<NuxtLink to="/">
 								<el-menu-item index="8">
 									<i class="el-icon-s-home"></i>
 									<span>Dashboard</span>
 								</el-menu-item>
 							</NuxtLink>
 							<template v-if="true">
-								<NuxtLink to="/admin/user/list">
+								<NuxtLink to="/user/list">
 									<el-menu-item index="3">
 										<i class="el-icon-user"></i>
 										<span>User</span>
 									</el-menu-item>
 								</NuxtLink>
-								<NuxtLink to="/admin/enquiry/list">
+								<NuxtLink to="/enquiry/list">
 									<el-menu-item index="4">
 										<i class="el-icon-chat-line-square"></i>
 										<span>Enquiry</span>
 									</el-menu-item>
 								</NuxtLink>
-								<NuxtLink to="/admin/email/list">
+								<NuxtLink to="/email/list">
 									<el-menu-item index="5">
 										<i class="el-icon-message"></i>
 										<span>Email</span>
 									</el-menu-item>
 								</NuxtLink>
-								<NuxtLink to="/admin/literature/list">
+								<NuxtLink to="/literature/list">
 									<el-menu-item index="8">
 										<i class="el-icon-notebook-1"></i>
 										<span>literature</span>
 									</el-menu-item>
 								</NuxtLink>
-								<NuxtLink to="/admin/volunteer/list">
+								<NuxtLink to="/volunteer/list">
 									<el-menu-item index="6">
 										<i class="el-icon-user"></i>
 										<span>Volunteer</span>
 									</el-menu-item>
 								</NuxtLink>
-								<NuxtLink to="/admin/subscription/list">
+								<NuxtLink to="/subscription/list">
 									<el-menu-item index="10">
 										<i class="el-icon-user"></i>
 										<span>Subscription</span>
 									</el-menu-item>
 								</NuxtLink>
-								<NuxtLink to="/admin/testimonial/list">
+								<NuxtLink to="/testimonial/list">
 									<el-menu-item index="11">
 										<i class="el-icon-s-custom"></i>
 										<span>Testimonial</span>
 									</el-menu-item>
 								</NuxtLink>
-								<NuxtLink to="/admin/media/list">
+								<NuxtLink to="/media/list">
 									<el-menu-item index="12">
 										<i class="el-icon-video-camera-solid"></i>
 										<span>Media</span>
 									</el-menu-item>
 								</NuxtLink>
-								<NuxtLink to="/admin/crossword/list">
+								<NuxtLink to="/crossword/list">
 									<el-menu-item index="13">
 										<i class="el-icon-s-release"></i>
 										<span>Crossword</span>
 									</el-menu-item>
 								</NuxtLink>
-								<NuxtLink to="/admin/e-hundi/list">
+								<NuxtLink to="/e-hundi/list">
 									<el-menu-item index="14">
 										<i class="el-icon-price-tag"></i>
 										<span>E-Hundi</span>
 									</el-menu-item>
 								</NuxtLink>
-								<NuxtLink to="/admin/donation/list">
+								<NuxtLink to="/donation/list">
 									<el-menu-item index="16">
 										<i class="el-icon-price-tag"></i>
 										<span>Donation</span>
@@ -94,13 +94,13 @@
 										<i class="el-icon-picture-outline"></i>
 										<span>Gallery</span>
 									</template>
-									<NuxtLink to="/admin/gallery/images/list">
+									<NuxtLink to="/gallery/images/list">
 										<el-menu-item index="7-1">Images </el-menu-item>
 									</NuxtLink>
-									<NuxtLink to="/admin/gallery/videos/list">
+									<NuxtLink to="/gallery/videos/list">
 										<el-menu-item index="7-2">Videos </el-menu-item>
 									</NuxtLink>
-									<NuxtLink to="/admin/gallery/audios/list">
+									<NuxtLink to="/gallery/audios/list">
 										<el-menu-item index="7-2">Audios </el-menu-item>
 									</NuxtLink>
 								</el-submenu>
@@ -109,14 +109,14 @@
 										<i class="el-icon-picture-outline-round"></i>
 										<span>Home Page</span>
 									</template>
-									<NuxtLink to="/admin/home-page/banner/list">
+									<NuxtLink to="/home-page/banner/list">
 										<el-menu-item index="9-1">Banner </el-menu-item>
 									</NuxtLink>
-									<NuxtLink to="/admin/home-page/banner-video">
+									<NuxtLink to="/home-page/banner-video">
 										<el-menu-item index="9-2">Videos </el-menu-item>
 									</NuxtLink>
 								</el-submenu>
-								<NuxtLink to="/admin/events/list">
+								<NuxtLink to="/events/list">
 									<el-menu-item index="15">
 										<i class="el-icon-s-marketing"></i>
 										<span>Events</span>
