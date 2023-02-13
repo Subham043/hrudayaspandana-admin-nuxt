@@ -15,7 +15,7 @@
 	</div>
 	<div class="d-md-flex d-none align-items-center logo-box justify-content-end">		
 		<NuxtLink to="/" class="logo-lg">
-			<span class="light-logo"><img class="header-logo" src="/images/logo.png" alt="logo"></span>
+			<span class="light-logo"><img class="header-logo" src="images/logo.png" alt="logo"></span>
 		</NuxtLink>
 	</div> 
 		
@@ -54,7 +54,7 @@
 							<p class="pt-5 fs-14 mb-0 fw-700">{{$auth.user.first_name ? $auth.user.first_name : "Anonymous"}}</p>
 							<small class="fs-10 mb-0 text-uppercase text-mute">{{$auth.user.role}}</small>
 						</div>
-						<img src="/images/avatar/avatar-13.png" class="avatar rounded-circle bg-primary-light h-40 w-40" alt="" />
+						<img src="images/avatar/avatar-13.png" class="avatar rounded-circle bg-primary-light h-40 w-40" alt="" />
 					</div>
 				</a>
 			</li>		  

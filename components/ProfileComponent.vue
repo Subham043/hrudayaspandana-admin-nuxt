@@ -20,7 +20,7 @@
       <div class="d-flex flex-row">
         <div class="">
           <img
-            src="/images/avatar/avatar-13.png"
+            src="images/avatar/avatar-13.png"
             alt="user"
             class="rounded bg-danger-light w-150"
             width="100"

@@ -44,7 +44,7 @@
                                     <div class="col-md-4">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|ext:jpg,jpeg,png,webp" name="image">
                                         <div class="form-group">
-                                            <label class="form-label">Image *</label>
+                                            <label class="form-label">Image (800 x 500) *</label>
                                             <input v-model="image" type="hidden" />
                                             <input class="form-control" type="file" @change="handleImageChnage" />
                                         </div>
@@ -60,7 +60,7 @@
                                         <span :class="classes">{{ errors[0] }}</span>
                                         </ValidationProvider>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <!-- /.box-body -->
@@ -83,7 +83,7 @@
         </section>
     </div>
 </template>
-  
+
 <script>
 import BreadcrumbComponent from '~/components/BreadcrumbComponent.vue';
 export default {
@@ -138,7 +138,7 @@ export default {
                 });
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-                
+
             }finally{
             loading.close()
             }
@@ -149,4 +149,3 @@ export default {
     }
 }
 </script>
-  

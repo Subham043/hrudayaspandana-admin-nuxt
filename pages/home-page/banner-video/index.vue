@@ -40,14 +40,11 @@
                                             <span :class="classes">{{ errors[0] }}</span>
                                         </ValidationProvider>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
-                                <NuxtLink to="/home-page/banner-video"><button type="button" class="btn btn-primary-light me-1">
-                                    <i class="el-icon-close"></i> Cancel
-                                </button></NuxtLink>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="el-icon-folder-add"></i> Save
                                 </button>
@@ -63,7 +60,7 @@
         </section>
     </div>
 </template>
-  
+
 <script>
 import BreadcrumbComponent from '~/components/BreadcrumbComponent.vue';
 export default {
@@ -107,7 +104,7 @@ export default {
                 });
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-                
+
             }finally{
             loading.close()
             }
@@ -135,4 +132,3 @@ export default {
     }
 }
 </script>
-  
