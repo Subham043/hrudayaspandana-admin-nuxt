@@ -44,7 +44,10 @@
                                 </el-table-column>
                                 <el-table-column fixed="right" label="Operations" width="180">
                                     <template slot-scope="scope">
+                                      <el-tooltip class="item" effect="dark" content="Edit Password" placement="top-start">
                                         <NuxtLink v-if="scope.row.status!=0" :to="`/user/password/${scope.row.id}`"><el-button type="primary" icon="el-icon-key" circle></el-button></NuxtLink>
+                                      </el-tooltip>
+                                      <el-tooltip class="item" effect="dark" content="Block/Unblock User" placement="top-start">
                                         <el-popconfirm
                                         confirm-button-text='OK'
                                         cancel-button-text='No, Thanks'
@@ -57,7 +60,9 @@
                                         v-if="scope.row.status!=0" slot="reference" type="warning" icon="el-icon-warning"  circle
                                         ></el-button>
                                         </el-popconfirm>
+                                      </el-tooltip>
 
+                                      <el-tooltip class="item" effect="dark" content="Delete User" placement="top-start">
                                         <el-popconfirm
                                         confirm-button-text='OK'
                                         cancel-button-text='No, Thanks'
@@ -70,7 +75,9 @@
                                         slot="reference" type="danger" icon="el-icon-delete"  circle
                                         ></el-button>
                                         </el-popconfirm>
-                                        
+                                      </el-tooltip>
+
+
                                     </template>
                                 </el-table-column>
                             </el-table>
@@ -87,7 +94,7 @@
         </section>
     </div>
 </template>
-  
+
 <script>
 import BreadcrumbComponent from '~/components/BreadcrumbComponent.vue';
 export default {
@@ -197,4 +204,3 @@ export default {
     }
 }
 </script>
-  

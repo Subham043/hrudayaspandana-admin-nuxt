@@ -31,6 +31,7 @@
                                 </el-table-column>
                                 <el-table-column fixed="right" label="Operations" width="100">
                                     <template slot-scope="scope">
+                                      <el-tooltip class="item" effect="dark" content="Delete Enquiry" placement="top-start">
                                         <el-popconfirm
                                         confirm-button-text='OK'
                                         cancel-button-text='No, Thanks'
@@ -43,6 +44,7 @@
                                         slot="reference" type="danger" icon="el-icon-delete"  circle
                                         ></el-button>
                                         </el-popconfirm>
+                                      </el-tooltip>
                                     </template>
                                 </el-table-column>
                             </el-table>
@@ -59,7 +61,7 @@
         </section>
     </div>
 </template>
-  
+
 <script>
 import BreadcrumbComponent from '~/components/BreadcrumbComponent.vue';
 export default {
@@ -152,4 +154,3 @@ export default {
     }
 }
 </script>
-  

@@ -31,8 +31,13 @@
                                 </el-table-column>
                                 <el-table-column label="Operations" width="200">
                                     <template slot-scope="scope">
+                                      <el-tooltip class="item" effect="dark" content="Edit Media" placement="top-start">
                                         <NuxtLink :to="`/media/edit/${scope.row.id}`"><el-button type="primary" icon="el-icon-edit" circle></el-button></NuxtLink>
+                                      </el-tooltip>
+                                      <el-tooltip class="item" effect="dark" content="Display Media" placement="top-start">
                                         <NuxtLink :to="`/media/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>
+                                      </el-tooltip>
+                                      <el-tooltip class="item" effect="dark" content="Delete Media" placement="top-start">
                                         <el-popconfirm
                                         confirm-button-text='OK'
                                         cancel-button-text='No, Thanks'
@@ -45,6 +50,8 @@
                                         slot="reference" type="danger" icon="el-icon-delete"  circle
                                         ></el-button>
                                         </el-popconfirm>
+                                      </el-tooltip>
+
                                     </template>
                                 </el-table-column>
                             </el-table>
@@ -61,7 +68,7 @@
         </section>
     </div>
 </template>
-  
+
 <script>
 import BreadcrumbComponent from '~/components/BreadcrumbComponent.vue';
 export default {
@@ -138,4 +145,3 @@ export default {
     }
 }
 </script>
-  

@@ -31,7 +31,7 @@
                                       <el-tooltip class="item" effect="dark" content="Display Crossword" placement="top-start">
                                         <NuxtLink :to="`/crossword/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>
                                       </el-tooltip>
-                                      <el-tooltip class="item" effect="dark" content="Top Left prompts info" placement="top-start">
+                                      <el-tooltip class="item" effect="dark" content="Delete Crossword" placement="top-start">
                                         <el-popconfirm
                                         confirm-button-text='OK'
                                         cancel-button-text='No, Thanks'

@@ -47,10 +47,19 @@
                                 </el-table-column>
                                 <el-table-column fixed="right" label="Operations" width="300">
                                     <template slot-scope="scope">
+                                      <el-tooltip class="item" effect="dark" content="Edit Events" placement="top-start">
                                         <NuxtLink :to="`/events/edit/${scope.row.id}`"><el-button type="primary" icon="el-icon-edit" circle></el-button></NuxtLink>
+                                      </el-tooltip>
+                                      <el-tooltip class="item" effect="dark" content="Display Events" placement="top-start">
                                         <NuxtLink :to="`/events/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>
+                                      </el-tooltip>
+                                      <el-tooltip class="item" effect="dark" content="Events Images" placement="top-start">
                                         <NuxtLink :to="`/events/images/${scope.row.id}/list`"><el-button type="info" icon="el-icon-picture-outline" circle></el-button></NuxtLink>
+                                      </el-tooltip>
+                                      <el-tooltip class="item" effect="dark" content="Events Videos" placement="top-start">
                                         <NuxtLink :to="`/events/videos/${scope.row.id}/list`"><el-button type="info" icon="el-icon-video-camera" circle></el-button></NuxtLink>
+                                      </el-tooltip>
+                                      <el-tooltip class="item" effect="dark" content="Event Status" placement="top-start">
                                         <el-popconfirm
                                         confirm-button-text='OK'
                                         cancel-button-text='No, Thanks'
@@ -63,6 +72,8 @@
                                         slot="reference" type="warning" :icon="scope.row.status==0 ? 'el-icon-circle-close' : 'el-icon-circle-check'"  circle
                                         ></el-button>
                                         </el-popconfirm>
+                                      </el-tooltip>
+                                      <el-tooltip class="item" effect="dark" content="Delete Events" placement="top-start">
                                         <el-popconfirm
                                         confirm-button-text='OK'
                                         cancel-button-text='No, Thanks'
@@ -75,6 +86,8 @@
                                         slot="reference" type="danger" icon="el-icon-delete"  circle
                                         ></el-button>
                                         </el-popconfirm>
+                                      </el-tooltip>
+
                                     </template>
                                 </el-table-column>
                             </el-table>
@@ -91,7 +104,7 @@
         </section>
     </div>
 </template>
-  
+
 <script>
 import BreadcrumbComponent from '~/components/BreadcrumbComponent.vue';
 export default {
@@ -185,4 +198,3 @@ export default {
     }
 }
 </script>
-  
