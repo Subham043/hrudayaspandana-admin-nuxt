@@ -57,7 +57,7 @@
                             </el-table>
                         </div>
                         <div class="box-footer text-center">
-                            <pagination v-model="currentPage" :records="count" :per-page="10" @paginate="handlePaginationChnage"/>
+                            <pagination v-model="currentPage" :records="count" :per-page="9" @paginate="handlePaginationChnage"/>
                         </div>
                     </div>
                 </div>
