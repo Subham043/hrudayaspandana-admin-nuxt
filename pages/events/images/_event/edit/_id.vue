@@ -27,7 +27,7 @@
                                     <div class="col-md-6">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="ext:jpg,jpeg,png,webp" name="image">
                                         <div class="form-group">
-                                            <label class="form-label">Image * <el-button type="text"><a :href="imageLink" target="_blank">( Download Image <i class="el-icon-download"></i> )</a></el-button></label>
+                                            <label class="form-label">Image (384 x 255) * <el-button type="text"><a :href="imageLink" target="_blank">( Download Image <i class="el-icon-download"></i> )</a></el-button></label>
                                             <input v-model="image" type="hidden" />
                                             <input class="form-control" type="file" @change="handleImageChnage" />
                                         </div>
@@ -43,7 +43,7 @@
                                         <span :class="classes">{{ errors[0] }}</span>
                                         </ValidationProvider>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <!-- /.box-body -->
@@ -66,7 +66,7 @@
         </section>
     </div>
 </template>
-  
+
 <script>
 import BreadcrumbComponent from '~/components/BreadcrumbComponent.vue';
 export default {
@@ -114,7 +114,7 @@ export default {
                 });
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-                
+
             }finally{
             loading.close()
             }
@@ -147,4 +147,3 @@ export default {
     }
 }
 </script>
-  
