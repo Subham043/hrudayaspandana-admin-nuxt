@@ -95,7 +95,7 @@ export default {
                 formData.append('video', this.video);
                 const response = await this.$privateApi.post('/api/banner-video/edit', formData); // eslint-disable-line
                 this.$toast.success('Data updated successfully')
-                this.$router.push(this.$nuxt.context.from.path);
+                // this.$router.push(this.$nuxt.context.from.path);
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
                 this.$refs.form.setErrors({
