@@ -42,7 +42,7 @@
                                         </ValidationProvider>
                                     </div>
                                     <div class="col-md-4">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|ext:jpg,jpeg,png,webp" name="image">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|ext:jpg,jpeg,png,webp|dimensions:800,500" name="image">
                                         <div class="form-group">
                                             <label class="form-label">Image (800 x 500) *</label>
                                             <input v-model="image" type="hidden" />

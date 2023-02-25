@@ -122,6 +122,12 @@
 										<span>Events</span>
 									</el-menu-item>
 								</NuxtLink>
+								<NuxtLink to="/counter/list">
+									<el-menu-item index="15">
+										<i class="el-icon-time"></i>
+										<span>Counters</span>
+									</el-menu-item>
+								</NuxtLink>
 							</template>
 						</el-menu>
 						<!-- sidebar menu-->

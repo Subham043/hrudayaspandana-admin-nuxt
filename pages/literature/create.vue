@@ -25,9 +25,9 @@
                                         </ValidationProvider>
                                     </div>
                                     <div class="col-md-6">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|ext:jpg,jpeg,png,webp" name="image">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|ext:jpg,jpeg,png,webp|dimensions:800,500" name="image">
                                         <div class="form-group">
-                                            <label class="form-label">Image (384 x 255) *</label>
+                                            <label class="form-label">Image (800 x 500) *</label>
                                             <input v-model="image" type="hidden" />
                                             <input class="form-control" type="file" @change="handleImageChnage" />
                                         </div>
