@@ -63,6 +63,9 @@ extend('ext', {
 
 extend('dimensions', {
   ...dimensions,
+  message: (fieldName, placeholders) => {
+    return `${fieldName} must be of the dimension mentioned above`;
+  }
 });
 
 extend('min', {
