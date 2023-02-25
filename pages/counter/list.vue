@@ -30,8 +30,10 @@
                                       <el-tooltip class="item" effect="dark" content="Edit Counter" placement="top-start">
                                         <NuxtLink :to="`/counter/edit/${scope.row.id}`"><el-button type="primary" icon="el-icon-edit" circle></el-button></NuxtLink>
                                       </el-tooltip>
-                                      <el-tooltip class="item" effect="dark" content="Delete Counter" placement="top-start">
+                                      <el-tooltip class="item" effect="dark" content="Display Counter" placement="top-start">
                                         <NuxtLink :to="`/counter/display/${scope.row.id}`"><el-button type="info" icon="el-icon-view" circle></el-button></NuxtLink>
+                                      </el-tooltip>
+                                      <el-tooltip class="item" effect="dark" content="Delete Counter" placement="top-start">
                                         <el-popconfirm
                                         confirm-button-text='OK'
                                         cancel-button-text='No, Thanks'
