@@ -39,7 +39,7 @@
                                         </ValidationProvider>
                                     </div>
                                     <div class="col-md-4">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required" name="end date">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="" name="end date">
                                         <div class="form-group">
                                             <label class="form-label">End Date *</label>
                                             <el-date-picker
