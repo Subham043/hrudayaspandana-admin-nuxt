@@ -237,8 +237,8 @@ export default {
                 this.sdate = response.data.data.sdate;
                 this.edate = response.data.data.edate;
                 this.description1 = response.data.data.description1;
-                this.description2 = response.data.data.description2;
-                this.description3 = response.data.data.description3;
+                this.description2 = response.data.data.description2 != null ? response.data.data.description2 : '';
+                this.description3 = response.data.data.description3 != null ? response.data.data.description3 : '';
             } catch (err) {
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
