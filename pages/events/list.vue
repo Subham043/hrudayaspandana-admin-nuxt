@@ -35,11 +35,6 @@
                                         {{scope.row.sdate ? $dateFns.format(new Date(scope.row.sdate), 'dd-MMM-yyyy') : null}}
                                     </template>
                                 </el-table-column>
-                                <el-table-column  width="250" label="End Date">
-                                    <template slot-scope="scope">
-                                        {{scope.row.edate ? $dateFns.format(new Date(scope.row.edate), 'dd-MMM-yyyy') : null}}
-                                    </template>
-                                </el-table-column>
                                 <el-table-column  width="250" label="CreatedAt">
                                     <template slot-scope="scope">
                                         {{$dateFns.format(new Date(scope.row.created_at), 'dd-MMM-yyyy hh:mm aa')}}
