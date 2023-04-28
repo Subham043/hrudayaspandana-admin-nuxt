@@ -172,21 +172,21 @@ export default {
                 icon: 'el-icon-notebook-2'
             }],
             statusType: [{
-                value: '0',
+                value: 0,
                 label: 'Past',
                 icon: 'el-icon-video-camera'
                 }, {
-                value: '1',
+                value: 1,
                 label: 'Upcoming',
                 icon: 'el-icon-notebook-2'
                 }, {
-                value: '2',
+                value: 2,
                 label: 'Recurring',
                 icon: 'el-icon-notebook-2'
                 }
             ],
             type: 'madhava-seva',
-            status: '0',
+            status: 0,
             imageLink:'',
             customToolbar: [
                 [{ header: [false, 1, 2, 3, 4, 5, 6] }],
