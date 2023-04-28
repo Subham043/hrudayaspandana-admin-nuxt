@@ -26,8 +26,8 @@
                                 </el-table-column>
                                 <el-table-column label="Status" width="250">
                                     <template slot-scope="scope">
-                                        <el-tag v-if="scope.row.status===0" size="medium" type="danger">Past</el-tag>
-                                        <el-tag v-else-if="scope.row.status===1" size="medium" type="success">Upcoming</el-tag>
+                                        <el-tag v-if="scope.row.status===0" size="medium" type="success">Upcoming</el-tag>
+                                        <el-tag v-else-if="scope.row.status===1" size="medium" type="danger">Past</el-tag>
                                         <el-tag v-else size="medium" type="warning">Recurring</el-tag>
                                     </template>
                                 </el-table-column>

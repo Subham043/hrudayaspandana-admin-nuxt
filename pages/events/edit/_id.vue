@@ -173,11 +173,11 @@ export default {
             }],
             statusType: [{
                 value: 0,
-                label: 'Past',
+                label: 'Upcoming',
                 icon: 'el-icon-video-camera'
                 }, {
                 value: 1,
-                label: 'Upcoming',
+                label: 'Past',
                 icon: 'el-icon-notebook-2'
                 }, {
                 value: 2,
