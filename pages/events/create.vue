@@ -52,7 +52,7 @@
                                         <span :class="classes">{{ errors[0] }}</span>
                                         </ValidationProvider>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required" name="type">
                                         <div class="form-group">
                                             <label class="form-label">Category *</label>
@@ -69,7 +69,24 @@
                                         <span :class="classes">{{ errors[0] }}</span>
                                         </ValidationProvider>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required" name="status">
+                                        <div class="form-group">
+                                            <label class="form-label">Status *</label>
+                                            <el-select v-model="status" placeholder="Select" style="width:100%">
+                                                <el-option
+                                                v-for="item in statusType"
+                                                :key="item.value"
+                                                :label="item.label"
+                                                :value="item.value">
+                                                <span style="float: left">{{ item.label }}</span>
+                                                </el-option>
+                                            </el-select>
+                                        </div>
+                                        <span :class="classes">{{ errors[0] }}</span>
+                                        </ValidationProvider>
+                                    </div>
+                                    <div class="col-md-4">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|ext:jpg,jpeg,png,webp|dimensions:800,500" name="image">
                                         <div class="form-group">
                                             <label class="form-label">Image (800 x 500) *</label>
@@ -154,7 +171,22 @@ export default {
                 label: 'MANAVA SEVA',
                 icon: 'el-icon-notebook-2'
             }],
+            statusType: [{
+                value: '0',
+                label: 'Past',
+                icon: 'el-icon-video-camera'
+                }, {
+                value: '1',
+                label: 'Upcoming',
+                icon: 'el-icon-notebook-2'
+                }, {
+                value: '2',
+                label: 'Recurring',
+                icon: 'el-icon-notebook-2'
+                }
+            ],
             type: 'madhava-seva',
+            status: '0',
             customToolbar: [
                 [{ header: [false, 1, 2, 3, 4, 5, 6] }],
                 ["bold", "italic", "underline", "strike"], // toggled buttons
@@ -188,6 +220,7 @@ export default {
             try {
                 const formData = new FormData;
                 formData.append('category', this.type);
+                formData.append('status', this.status);
                 formData.append('image', this.image);
                 formData.append('name', this.name);
                 formData.append('sdate', this.sdate);
@@ -208,6 +241,7 @@ export default {
                     description2: err?.response?.data?.errors?.description2,
                     description3: err?.response?.data?.errors?.description3,
                     type: err?.response?.data?.errors?.category,
+                    status: err?.response?.data?.errors?.status,
                 });
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
