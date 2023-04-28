@@ -75,7 +75,7 @@
                                             <label class="form-label">Category *</label>
                                             <el-select v-model="status" placeholder="Select" style="width:100%">
                                                 <el-option
-                                                v-for="item in fileStatus"
+                                                v-for="item in statusType"
                                                 :key="item.value"
                                                 :label="item.label"
                                                 :value="item.value">
